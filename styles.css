@@ -17,19 +17,30 @@ html {
 body {
 	background-color: #00CC66;
 	font-family: 'Work Sans', sans-serif;
+	color: #0b6936;
 	padding: 10px;
 }
 
 h3, .h3 {
 	font-weight: 400;
+	font-size: 3vmax;
+	letter-spacing: -.02rem;
+	margin: 0 0 3px;
+	line-height: 1;
+}
+
+a {
+	color: #0b6936;
 }
 
 /* grid */
 
 .container {
 	position: relative;
-	overflow: hidden;
 	clear: both;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #0ca551;
+	padding-bottom: 10px;
 }
 
 .grid {
@@ -39,8 +50,9 @@ h3, .h3 {
 }
 
 .grid--large {
-	grid-template-columns: repeat(4, 1fr);
-  	grid-template-rows: 25%;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-auto-flow: column;
+	grid-auto-flow: dense;
 }
 
 .grid--small {
@@ -49,17 +61,23 @@ h3, .h3 {
 }
 
 .grid__heading {
-	color: #0b6936;
-	font-size: 1.1rem;
 	display: block;
 	margin-bottom: 10px;
 }
 
 .grid__item {
 	background-color: #fff;
-	border-radius: 8px;
-	padding: 10px;
+	border-radius: 6px;
+	padding: 15px;
 	display: inline-block;
-	border: 6px solid #0ca551;
-	margin-bottom: 10px;
+	background-color: #0ca551;
+	overflow: hidden;
+	position: relative;
+	transform: scale(1);
+	transition: transform .2s ease-in-out;
+	color: #fff;
+}
+
+.amount {
+	font-size: 2vmax;
 }
