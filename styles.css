@@ -15,9 +15,9 @@ html {
 }
 
 body {
-	background-color: #00CC66;
 	font-family: 'Work Sans', sans-serif;
 	color: #0b6936;
+	background: #00CC66;;
 }
 
 h3, .h3 {
@@ -78,6 +78,10 @@ a {
 
 .amount {
 	font-size: 2vmax;
+}
+
+.amount span {
+	color: #0b6936;
 }
 
 footer.container {

@@ -6,82 +6,63 @@
 	<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-	<div class="container">
-
-		<span class="grid__heading">Beans &amp; legumes</span>
-
-		<section class="[ grid grid--large ]">
-
-			<div class="grid__item" data-amount="12">
-				<h3>Kidney beans</h3>
-				<span class="amount">24g</span>
-
-				<!--<table>
-					<thead>
-						<th>
-							Typical values per 100g
-						</th>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Total fat</td>
-							<td>0.8g</td>
-						</tr>
-						<tr>
-							<td>Cholesterol</td>
-							<td>0mg</td>
-						</tr>
-						<tr>
-							<td>Sodium</td>
-							<td>24mg</td>
-						</tr>
-						<tr>
-							<td>Potassium</td>
-							<td>1,406mg</td>
-						</tr>
-					</tbody>
-				</table>-->
-
-				
-				
-			</div>
-
-			<div class="grid__item" data-amount="12">
-				<h3>Chickpeas</h3>
-				<span class="amount">24g</span>
-			</div>
-
-		</section>
-
-	</div>
-
-	<div class="container">
-
-		<span class="grid__heading">Nuts &amp; seeds</span>
-
-		
-
-	</div>
-
-	<div class="container">
-
-		<span class="grid__heading">Grains</span>
-
-		
-
-	</div>
-
-	<div class="container">
-
-		<span class="grid__heading">Greens</span>
-
-		
-
-	</div>
+	<div id="wrapper"></div>
 
 	<footer class="container">
 		<p>Built by <a href="https://github.com/japick" target="_blank">Jay Pick</a> using CSS Grid. Hosted on Github.</p>
 	</footer>
+
+	<script id="hbTemplate" type="text/x-handlebars-template">
+		{{#each types}}
+			<div class="container">
+				<span class="grid__heading">{{label}}</span>
+				<section class="[ grid grid--large ]">
+					{{#each foods}}
+						<div class="grid__item">
+							<h3>{{name}}</h3>
+							<span class="amount">{{protein}} <span>/ 100g</span></span>
+						</div>
+					{{/each}}
+				</section>
+			</div>
+		{{/each}}
+	</script>
+
+	<script src="js/handlebars-v4.0.11.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+	<script>
+	  // Initialize Firebase
+	  var config = {
+	    apiKey: "AIzaSyD86oHufG8rMB4eF0qPyhOKxoDynhUI-IA",
+	    authDomain: "plantprotein-7ffc4.firebaseapp.com",
+	    projectId: "plantprotein-7ffc4",
+	    databaseURL: "https://plantprotein-7ffc4.firebaseio.com",
+	    storageBucket: "plantprotein-7ffc4.appspot.com",
+	    messagingSenderId: "678991690412"
+	  };
+	  firebase.initializeApp(config);
+
+	  var dbRef = firebase.database().ref();
+
+	  dbRef.on('value', createHTML, errData);
+
+	  function createHTML( snap ) {
+	  	console.log(snap.val());
+
+	  	var data = snap.val();
+	  	var template = document.getElementById('hbTemplate').innerHTML;
+	  	var compiledTemplate = Handlebars.compile(template);
+	  	var generatedHTML = compiledTemplate(data);
+	  	var wrapper = document.getElementById('wrapper');
+	  	wrapper.innerHTML = generatedHTML;
+
+	  }
+
+	  function errData(err) {
+	  	console.log(err);
+	  }
+
+	</script>
 
 </body>
 </html>
