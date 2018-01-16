@@ -14,11 +14,11 @@
 	</footer>
 
 	<script id="hbTemplate" type="text/x-handlebars-template">
-		{{#each types}}
+		{{#each groups}}
 			<div class="container">
-				<span class="grid__heading">{{label}}</span>
+				<span class="grid__heading">{{group.name}}</span>
 				<section class="[ grid grid--large ]">
-					{{#each foods}}
+					{{#each group.foods}}
 						<div class="grid__item">
 							<h3>{{name}}</h3>
 							<span class="amount">{{protein}} <span>/ 100g</span></span>
@@ -48,7 +48,6 @@
 	  dbRef.on('value', createHTML, errData);
 
 	  function createHTML( snap ) {
-	  	console.log(snap.val());
 
 	  	var data = snap.val();
 	  	var template = document.getElementById('hbTemplate').innerHTML;
