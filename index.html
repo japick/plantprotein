@@ -11,7 +11,7 @@
 		<span>Plants got protein.</span>
 	</div>
 	<div class="container">
-		<p class="lede">Contrary to popular <strong>myth</strong>, plant protein contains <strong>all</strong> 9 essential amino acids, making them <strong>"complete" proteins</strong>.</p>
+		<p class="lede">Contrary to popular myth, plant protein contains all 9 essential amino acids, making them <span>complete</span> proteins.</p>
 	</div>
 	<div id="wrapper"></div>
 
@@ -22,11 +22,11 @@
 	<script id="hbTemplate" type="text/x-handlebars-template">
 		{{#each groups}}
 			<div class="container">
-				<span class="grid__heading">{{groups}}</span>
+				<span class="grid__heading">{{group}}</span>
 				<section class="[ grid grid--large ]">
 					{{#each foods}}
 						<div class="grid__item">
-							<h3>{{food.key}}</h3>
+							<h3>{{name}}</h3>
 							<span class="amount">{{protein}} <span>/ 100g</span></span>
 						</div>
 					{{/each}}
@@ -61,8 +61,6 @@
 	  	var generatedHTML = compiledTemplate(data);
 	  	var wrapper = document.getElementById('wrapper');
 	  	wrapper.innerHTML = generatedHTML;
-
-	  	console.log(data);
 
 	  }
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Work+Sans');
 
 * {
 	margin: 0;
@@ -23,18 +23,15 @@ body {
 
 h3, .h3 {
 	font-weight: 400;
-	font-size: 4vmax;
+	font-size: 2.4rem;
 	letter-spacing: -.1rem;
 	margin: 0;
 	line-height: 1;
+	text-shadow: 2px 2px 0px #0a8f46;
 }
 
 a {
 	color: #0b6936;
-}
-
-strong {
-	font-weight: 400;
 }
 
 /* grid */
@@ -43,7 +40,7 @@ strong {
 	position: relative;
 	clear: both;
 	border-bottom: 1px solid #0ca551;
-	padding: 10px;
+	padding: 20px;
 }
 
 .grid {
@@ -65,7 +62,7 @@ strong {
 
 .grid__heading {
 	display: block;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 }
 
 .grid__item {
@@ -83,10 +80,12 @@ strong {
 
 .amount {
 	font-size: 1.6rem;
+	text-shadow: 2px 2px 0px #0a8f46;
 }
 
 .amount span {
 	color: #0b6936;
+	text-shadow: none;
 }
 
 footer.container {
@@ -96,8 +95,45 @@ footer.container {
 .lede {
 	font-size: 3.8rem;
 	letter-spacing: -.02em;
-	font-weight: 300;
 	line-height: 1.1;
 	color: #fff;
-	text-shadow: 2px 2px 0px #0ca551;
+	text-shadow: 2px 2px 0px #0a8f46;
+	margin-bottom: 10px;
+}
+
+.lede span {
+	display: inline-block;
+}
+
+.lede span:before,
+.lede span:after {
+	display: inline-block;
+}
+
+.lede span:before {
+	content: open-quote;
+}
+
+.lede span:after {
+	content: close-quote;
+}
+
+/* responsive */
+
+@media only screen and (max-width: 768px) {
+	.lede {
+		font-size: 3rem;
+		line-height: 1;
+	}
+}
+
+@media only screen and (max-width: 530px) {
+	.container {
+		padding: 10px;
+	}
+
+	.grid__heading {
+		display: block;
+		margin-bottom: 10px;
+	}
 }
