@@ -17,7 +17,7 @@ html {
 body {
 	font-family: 'Work Sans', sans-serif;
 	color: #0b6936;
-	background: #00CC66;
+	background-color: #00CC66;
 	font-weight: 400;
 }
 
@@ -94,10 +94,8 @@ footer.container {
 
 .lede {
 	font-size: 3.8rem;
-	letter-spacing: -.02em;
+	letter-spacing: -.03em;
 	line-height: 1.1;
-	color: #fff;
-	text-shadow: 2px 2px 0px #0a8f46;
 	margin-bottom: 10px;
 }
 
